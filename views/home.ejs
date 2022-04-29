@@ -1,0 +1,25 @@
+
+<%- include("partials/header") -%>
+
+<h1>Home</h1>
+<p> <%= homeStartingContent %> </p>
+
+
+
+<% posts.forEach(function(e){ %>
+<% let cutText; %> 
+<%  if (e.content <= 10) { %> 
+<%    cutText = e.content; %> 
+<%  } else { %> 
+<%   cutText = e.content.substr(0, 100) + " " + '\u2026' %> 
+<%  } %>
+    <h1> <%= e.title %> </h1>
+    <p> <%= cutText %> <a href="/posts/<%= e.title %>">Read More</a> </p>
+    
+<%  }) %> 
+
+
+
+<%- include("partials/footer") -%>
+
+
